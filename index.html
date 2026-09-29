@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3ebe4">
+<title>Profesor Sergio Tertusio · Normas Internacionales de Auditoría</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%239e2a2b'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='16' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("aula-nia-theme");
+    if (t !== "light" && t !== "dark") {
+      t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<style>
+  :root {
+    --bg: #f3ebe4;
+    --surface: #fffaf6;
+    --ink: #1c1412;
+    --muted: #5c4e48;
+    --line: #e3d4cb;
+    --accent: #9e2a2b;
+    --accent-ink: #fff8f6;
+    --soft: #f8e4dc;
+    --ok: #17613e;
+    --ok-soft: #e4f5ec;
+    --bad: #9e2a2b;
+    --bad-soft: #f8e4dc;
+    --shadow: 0 12px 32px rgba(68, 32, 22, 0.08);
+    --serif: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+    --sans: "Source Sans 3", "Segoe UI", sans-serif;
+    --radius: 18px;
+    color-scheme: light;
+  }
+  [data-theme="dark"] {
+    --bg: #12100e;
+    --surface: #1e1916;
+    --ink: #f6efe9;
+    --muted: #d2c3ba;
+    --line: #3c332e;
+    --accent: #f0a097;
+    --accent-ink: #1c1210;
+    --soft: #3a2422;
+    --ok: #8fd9b0;
+    --ok-soft: #163026;
+    --bad: #f0a097;
+    --bad-soft: #3a2422;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  button, input { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .skip {
+    position: absolute; left: 12px; top: -40px; background: var(--accent); color: var(--accent-ink);
+    padding: 8px 12px; border-radius: 8px; z-index: 50;
+  }
+  .skip:focus { top: 8px; }
+  .top {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; flex-direction: column; align-items: stretch; gap: 2px;
+    padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 8px max(14px, env(safe-area-inset-left));
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+  .prof {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 680;
+    font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    background: none; border: 0; padding: 4px; min-height: 44px; text-align: left;
+  }
+  .mark {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--accent); color: var(--accent-ink);
+    display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 680; font-size: 1.05rem;
+  }
+  .brand b { display: block; font-size: 0.95rem; letter-spacing: 0.01em; }
+  .brand small { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 600; }
+  .spacer { flex: 1; }
+  .iconbtn, .textbtn {
+    min-width: 44px; min-height: 44px;
+    border-radius: 12px; border: 1px solid var(--line);
+    background: var(--surface);
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 0 12px;
+  }
+  .iconbtn svg, .textbtn svg { width: 20px; height: 20px; display: block; }
+  .textbtn { font-weight: 700; font-size: 0.92rem; }
+  .wrap {
+    width: min(1040px, calc(100% - 28px));
+    margin: 0 auto;
+    padding: 28px 0 max(48px, env(safe-area-inset-bottom));
+  }
+  .kicker {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+  .byline {
+    margin: 0 0 8px;
+    font-family: var(--serif);
+    font-weight: 680;
+    font-size: clamp(1.7rem, 4.2vw, 2.35rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 680;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 680;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+  h3 { font-family: var(--serif); font-size: 1.25rem; margin: 0 0 6px; line-height: 1.25; }
+  .lede { font-size: 1.15rem; max-width: 42rem; margin: 0 0 22px; }
+  .muted { color: var(--muted); }
+  .progress-row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 8px; }
+  .progress-row strong { font-size: 0.95rem; }
+  .bar { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 22px; }
+  .bar span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+  .modules { display: grid; gap: 12px; }
+  @media (min-width: 840px) { .modules { grid-template-columns: 1fr 1fr; } .span2 { grid-column: 1 / -1; } }
+  .card, .panel, .term, .choice, .slot, .node {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .card {
+    text-align: left; padding: 18px; width: 100%;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+    min-height: 44px;
+  }
+  .card:hover, .node:hover, .choice:hover { border-color: var(--accent); }
+  .idx { font-family: var(--serif); color: var(--accent); font-weight: 680; letter-spacing: 0.06em; }
+  .card p { margin: 0; color: var(--muted); }
+  .pill {
+    margin-top: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
+    border-radius: 999px; padding: 4px 10px;
+    background: var(--soft); color: var(--accent);
+    font-size: 0.82rem; font-weight: 700;
+  }
+  .pill.done { background: var(--ok-soft); color: var(--ok); }
+  .steps { display: grid; gap: 10px; margin: 8px 0 22px; }
+  @media (min-width: 840px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 14px 14px 0; }
+  .step b { display: block; }
+  .prose { max-width: 42rem; }
+  .prose p { margin: 0 0 14px; }
+  .callout {
+    display: grid; grid-template-columns: 4px 1fr; gap: 14px;
+    background: var(--soft); color: var(--ink);
+    border-radius: 14px; padding: 14px 16px; margin: 8px 0 18px;
+  }
+  .callout p { margin: 0; }
+  .split { display: grid; gap: 12px; margin: 12px 0 18px; }
+  @media (min-width: 800px) { .split.three { grid-template-columns: repeat(3, 1fr); } .split.two { grid-template-columns: 1fr 1fr; } }
+  .panel { padding: 16px; }
+  .panel .tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  .activity {
+    margin-top: 22px; padding: 16px;
+    border: 1px dashed var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  }
+  .activity h3 { margin-bottom: 6px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .chip, .choice, .node, .go {
+    min-height: 44px;
+  }
+  .chip {
+    border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+    padding: 8px 14px; font-weight: 700;
+  }
+  .chip.on, .choice.on, .node.on { border-color: var(--accent); background: var(--soft); }
+  .chip.used { opacity: 0.45; }
+  .slots { display: grid; gap: 8px; margin: 8px 0 12px; }
+  .slot { padding: 10px 12px; min-height: 48px; display: flex; gap: 10px; align-items: center; box-shadow: none; }
+  .slot em { font-style: normal; color: var(--muted); font-weight: 700; width: 1.4rem; }
+  .go, .ghost {
+    min-height: 48px; border-radius: 12px; padding: 0 16px; font-weight: 700;
+  }
+  .go { background: var(--accent); color: var(--accent-ink); border: 0; }
+  .go:disabled { opacity: 0.45; cursor: not-allowed; }
+  .ghost { background: transparent; border: 1px solid var(--line); }
+  .feedback { margin-top: 12px; border-radius: 14px; padding: 14px 16px; }
+  .feedback.ok { background: var(--ok-soft); color: var(--ink); }
+  .feedback.bad { background: var(--bad-soft); color: var(--ink); }
+  .feedback strong { display: block; margin-bottom: 4px; }
+  .feedback p { margin: 0 0 8px; }
+  .feedback p:last-child { margin: 0; }
+  .search {
+    width: 100%; min-height: 48px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--surface); padding: 0 14px;
+  }
+  .term { padding: 0; overflow: hidden; box-shadow: none; }
+  .term > button {
+    width: 100%; text-align: left; background: none; border: 0; padding: 14px 16px;
+    min-height: 56px; display: flex; justify-content: space-between; gap: 12px; align-items: center;
+  }
+  .term .body { padding: 0 16px 16px; }
+  .term .simple { font-weight: 700; }
+  .list { display: grid; gap: 8px; }
+  .tree { display: grid; gap: 8px; justify-items: center; margin: 8px 0 16px; }
+  .node { width: min(100%, 460px); text-align: left; padding: 12px 14px; box-shadow: none; }
+  .node small { display: block; color: var(--muted); font-weight: 600; }
+  .stem { width: 2px; height: 14px; background: var(--line); }
+  .tree-split { width: min(100%, 760px); display: grid; gap: 8px; }
+  @media (min-width: 800px) { .tree-split { grid-template-columns: 1fr 1fr; } }
+  .assign { display: grid; gap: 10px; }
+  .assign article { padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+  .choice {
+    text-align: left; padding: 12px 14px; width: 100%;
+    display: flex; gap: 10px; align-items: flex-start; box-shadow: none;
+  }
+  .letter {
+    flex: 0 0 28px; height: 28px; border-radius: 8px;
+    display: grid; place-items: center; font-weight: 700;
+    background: var(--soft); color: var(--accent);
+  }
+  .choice.good { border-color: var(--ok); background: var(--ok-soft); }
+  .choice.miss { border-color: var(--bad); background: var(--bad-soft); }
+  .choice.dim { opacity: 0.78; }
+  .qmeta { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-weight: 700; font-size: 0.9rem; }
+  .score {
+    font-family: var(--serif); font-size: clamp(3.2rem, 10vw, 5rem);
+    line-height: 0.9; margin: 8px 0;
+  }
+  details.rev { border-top: 1px solid var(--line); padding: 10px 0; }
+  details.rev summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 700; }
+  .modal-back {
+    position: fixed; inset: 0; z-index: 40;
+    background: rgba(18, 12, 10, 0.48);
+    display: grid; place-items: end center;
+    padding: 16px;
+  }
+  @media (min-width: 720px) { .modal-back { place-items: center; } }
+  .modal {
+    width: min(440px, 100%); background: var(--surface); color: var(--ink);
+    border-radius: 18px; padding: 20px; border: 1px solid var(--line);
+  }
+  .sources { font-size: 0.92rem; color: var(--muted); }
+  .sources a { color: var(--accent); font-weight: 700; }
+  .fine { font-size: 0.92rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div id="aula-root"></div>
+<script>
+const THEME_KEY = "aula-nia-theme";
+const STATE_KEY = "aula-nia-v1";
+
+const FASES = {
+  plan: "Planificación",
+  ejec: "Ejecución",
+  concl: "Conclusión",
+  opin: "Opinión",
+};
+
+const TERMS = [
+  { id: "aud", group: "trabajo", name: "Auditoría", simple: "Revisión sistemática para ver si lo hecho cumple reglas y criterios objetivos.", body: "Según Tapia et al. (2016), es revisar que los hechos, fenómenos y operaciones se ejecutaron como fueron planteados, y que las políticas y procedimientos se observaron. No es una mirada casual: tiene método y un criterio contra el cual comparar." },
+  { id: "afirm", group: "marco", name: "Afirmaciones de auditoría", simple: "Lo que la dirección da a entender en los estados financieros, aunque no lo escriba.", body: "El IAASB (2016) las define como manifestaciones de la dirección, explícitas o no, que el auditor usa para pensar qué incorrecciones puede haber. Montes et al. (2017) mencionan, entre otras: transparencia, veracidad, existencia, ocurrencia, derechos y obligaciones, integridad, período, valuación y exactitud. Sirven en cualquier tipo de auditoría." },
+  { id: "kam", group: "trabajo", name: "Asuntos clave de la auditoría", simple: "Los temas que el auditor juzgó más importantes en este periodo.", body: "Se eligen entre los asuntos comunicados a los encargados del gobierno de la entidad (la Junta Directiva). No son «todo lo revisado»: son los de mayor importancia, según el juicio profesional (IAASB, 2016)." },
+  { id: "cc", group: "trabajo", name: "Control de calidad del encargo", simple: "Una revisión objetiva de los juicios importantes, a más tardar el día del informe.", body: "La hace alguien independiente de la auditoría ejecutada: verifica procedimientos, ética y documentación, dentro de las NIA. Además, quien tiene más experiencia revisa el trabajo de quien tiene menos (IAASB, 2016)." },
+  { id: "aseg", group: "encargos", name: "Encargo de aseguramiento", simple: "Un contrato en el que el auditor concluye para aumentar la confianza de terceros.", body: "Esos usuarios son distintos de la parte responsable o de quien contrata. El auditor evalúa una materia contra un criterio (Mantilla, 2016). En la práctica de esta lectura, «aseguramiento» equivale a verificar un marco —normas, leyes, procedimientos, buenas prácticas— y emitir un informe sobre la validez de los hechos y las afirmaciones de la dirección." },
+  { id: "raz", group: "encargos", name: "Aseguramiento razonable", simple: "Se baja el riesgo a un nivel bajo, con evidencia suficiente y adecuada.", body: "El auditor aplica las pruebas y procedimientos que hagan falta para atestiguar la razonabilidad de la información financiera o de los procesos (Mantilla, 2016). Es el nivel de seguridad alto: el de una auditoría." },
+  { id: "lim", group: "encargos", name: "Aseguramiento limitado", simple: "El riesgo solo baja a un nivel aceptable en esas circunstancias. No se hacen todas las pruebas.", body: "Se concentra en partidas o áreas específicas. La lectura lo identifica con las «revisiones limitadas» (Mantilla, 2016). Hay menos seguridad que en un aseguramiento razonable." },
+  { id: "atet", group: "encargos", name: "Encargo de atestiguamiento", simple: "Se revisa contra el marco aplicable y se emite un informe con opinión.", body: "Auditool (2022), citado en la lectura, lo describe como un servicio de aseguramiento en el que el auditor dictamina la confiabilidad de asuntos que son responsabilidad de un tercero." },
+  { id: "comp", group: "encargos", name: "Encargo de compilación", simple: "Ayudar a preparar información financiera. No es una auditoría ni una opinión.", body: "El profesional usa contabilidad para que la dirección presente información según un marco aplicable, e informa según la NISR 4410 (IAASB, 2016). El informe debe decir que no es un examen. Por eso se usan las palabras «compilar», «compilación» y «compilado»." },
+  { id: "rev", group: "encargos", name: "Encargo de revisión", simple: "Con menos evidencia que una auditoría, ver si algo indica que los estados no están bien en lo material.", body: "El objetivo (IAASB, 2016) es determinar si llegó a conocimiento del auditor algún hecho que le haga considerar que los estados no se prepararon, en todos los aspectos materiales, conforme al marco aplicable. Es limitada y, a la vez, es un trabajo de atestiguamiento." },
+  { id: "juicio", group: "actitud", name: "Juicio profesional", simple: "Aplicar formación, conocimiento y experiencia a los hechos. Sin eso no hay auditoría adecuada.", body: "Interpretar la ética y las NIA, y tomar decisiones durante el trabajo, exige ese juicio. Lo que se espera no es una opinión improvisada: es el juicio de quien tiene las competencias para llegar a conclusiones razonables (IMCP, 2018)." },
+  { id: "esc", group: "actitud", name: "Escepticismo profesional", simple: "Mente inquisitiva, ojo al error o al fraude, y crítica de la evidencia.", body: "No significa acusar de entrada. Es una actitud (IAASB, 2016) para discernir entre el marco de referencia y lo que realmente ocurrió." },
+  { id: "fraude", group: "marco", name: "Factores de riesgo de fraude", simple: "Señales de presión, incentivo u oportunidad para cometer fraude.", body: "Son hechos o circunstancias, no el fraude ya probado (IAASB, 2016). Alertan al auditor para diseñar procedimientos." },
+  { id: "mat", group: "marco", name: "Materialidad o importancia relativa", simple: "Algo es material si omitirlo o decirlo mal puede cambiar la decisión de quien usa los estados.", body: "Así lo toma la lectura desde la NIC 1 (IASB, 2019): usuarios principales de estados con propósito general. Una partida material modifica la razonabilidad de la información cuando hay error u omisión." },
+  { id: "niif", group: "marco", name: "NIIF", simple: "El lenguaje contable internacional del IASB: cómo reconocer, medir, presentar y revelar.", body: "No las emite el IAASB. Las Normas Internacionales de Información Financiera (IFRS) las promulga el IASB. Las NIA dicen cómo auditar; las NIIF dicen cómo informar (Deloitte, 2018, citado en la lectura)." },
+  { id: "serv", group: "encargos", name: "Servicios relacionados", simple: "Procedimientos acordados y compilación. Van en su propia familia: las NISR.", body: "La lectura (IAASB, 2016) los ubica aparte de la auditoría y de la revisión. Cuidado con no mezclarlos: la compilación no es atestiguamiento. Los procedimientos acordados informan lo encontrado; no son una opinión de razonabilidad como la de una auditoría." },
+];
+
+const NODES = {
+  etica: { t: "Código de Ética · IESBA", d: "Documento rector. Regula la conducta del auditor interno (bajo relación de dependencia) y del externo (libre ejercicio). No es una NIA, pero el trabajo se rige por este código y por las normas del IAASB." },
+  iaasb: { t: "Encargos que se rigen por las normas del IAASB", d: "Auditoría, revisión, otros encargos de aseguramiento y servicios relacionados. Buscan un lenguaje global de calidad." },
+  nicc: { t: "NICC 1 a 99 · Control de calidad", d: "Normas internacionales de control de calidad. Aseguran que la planificación, la ejecución, la evidencia y el informe sigan el marco. Van en el Volumen I, junto con las NIA." },
+  aseg: { t: "Normas de encargos de aseguramiento", d: "Se parten en dos: auditoría y revisión de información financiera histórica, y otros encargos de aseguramiento." },
+  hist: { t: "Auditoría y revisión de información histórica", d: "Aquí viven las NIA (auditoría) y las NIER (revisión)." },
+  nia: { t: "NIA 100 a 999", d: "Normas Internacionales de Auditoría. Cubren las fases del encargo de auditoría. Con las NICC forman el Volumen I." },
+  nier: { t: "NIER 2000 a 2699", d: "Normas Internacionales de Encargos de Revisión. Van en el Volumen II." },
+  otro: { t: "Otros encargos de aseguramiento", d: "No son la auditoría ni la revisión de estados históricos, pero sí buscan aumentar la confianza sobre otra materia." },
+  niea: { t: "NIEA 3000 a 3699", d: "Normas Internacionales de Encargos de Aseguramiento. Volumen II." },
+  serv: { t: "Servicios relacionados", d: "Procedimientos acordados y compilación. No los confundas con una opinión de auditoría." },
+  nisr: { t: "NISR 4000 a 4699", d: "Normas Internacionales de Servicios Relacionados. Ejemplo de la lectura: la compilación se informa según la NISR 4410. Volumen II." },
+};
+
+const MAP_ITEMS = [
+  { id: "nia", label: "NIA 100 a 999", bucket: "audit" },
+  { id: "nier", label: "NIER 2000 a 2699", bucket: "review" },
+  { id: "niea", label: "NIEA 3000 a 3699", bucket: "other" },
+  { id: "nisr", label: "NISR 4000 a 4699", bucket: "related" },
+];
+const BUCKETS = [
+  { id: "audit", label: "Auditoría" },
+  { id: "review", label: "Revisión" },
+  { id: "other", label: "Otro aseguramiento" },
+  { id: "related", label: "Servicios relacionados" },
+];
+
+const ALCANCE = [
+  { id: "a1", text: "Las Notas Internacionales de Prácticas de Auditoría (NIPA) agregan requisitos que el auditor debe cumplir además de las NIA.", ok: "no", why: "No. Las NIPA son material no obligatorio. No imponen requerimientos adicionales ni cambian la obligación de cumplir las NIA relevantes (IAASB, 2016)." },
+  { id: "a2", text: "Aplicar una NIA antes de su fecha de entrada en vigor impide declarar que se cumple el marco.", ok: "no", why: "No. La lectura dice lo contrario: la aplicación anticipada está permitida y no modifica la declaración de cumplimiento. Lo que no corresponde es usar normas derogadas u obsoletas." },
+  { id: "a3", text: "Si en un contrato de aseguramiento no se siguen las NIA, hay que documentar las razones.", ok: "si", why: "Sí. Quien no las aplica debe dejar constancia de por qué, porque en conjunto forman una norma global para las auditorías." },
+  { id: "a4", text: "Los pronunciamientos del IAASB anulan las leyes de auditoría del país.", ok: "no", why: "No. Regulan los encargos hechos conforme a las normas internacionales, pero no anulan la ley ni el reglamento nacional. Esas disposiciones se respetan (IAASB, 2016)." },
+  { id: "a5", text: "Toda auditoría interna está cubierta, sin excepción, por las NIA.", ok: "no", why: "No. La lectura advierte que algunas auditorías pueden no estar cubiertas: el ejemplo explícito es la auditoría interna, aunque ciertas NIA puedan aplicarse en ese campo." },
+];
+
+const QUIZ = [
+  {
+    kind: "mc",
+    q: "¿Para qué existen las NIA, según esta lectura?",
+    options: [
+      "Para reemplazar las leyes de auditoría de cada país.",
+      "Para dar un lenguaje común y guías: información, riesgos, controles, evidencia e informe.",
+      "Para obligar a todas las empresas a llevar su contabilidad en NIIF.",
+      "Para que el auditor deje de usar el juicio profesional.",
+    ],
+    a: 1,
+    why: "El propósito descrito en la introducción es ese discurso común. Las NIA acompañan la planificación, la ejecución, la conclusión y la opinión. No sustituyen la ley local ni las NIIF (esas las emite el IASB), y el juicio profesional sigue siendo indispensable.",
+  },
+  {
+    kind: "tf",
+    q: "En un aseguramiento razonable el auditor busca reducir el riesgo a un nivel bajo, con evidencia suficiente y adecuada.",
+    a: true,
+    why: "Verdadero, en los términos de la lectura (Mantilla, 2016): por eso se considera razonable. El auditor hace las pruebas necesarias para atestiguar la razonabilidad de la información o de los procesos. No es una garantía de que el error sea imposible; es un nivel de riesgo bajo.",
+  },
+  {
+    kind: "mc",
+    q: "¿Qué distingue al aseguramiento limitado?",
+    options: [
+      "El riesgo se reduce solo a un nivel aceptable según las circunstancias, y no se aplican todas las pruebas.",
+      "Es idéntico a una auditoría, pero el informe no se entrega.",
+      "Consiste únicamente en compilar los estados financieros.",
+      "El auditor certifica que no existe ninguna incorrección.",
+    ],
+    a: 0,
+    why: "La lectura lo llama también «revisión limitada». Hay menos procedimientos que en el aseguramiento razonable y, por tanto, menos seguridad. No es compilación (eso ni siquiera es atestiguamiento) ni una certeza absoluta.",
+  },
+  {
+    kind: "tf",
+    q: "El encargo de compilación (NISR 4410) es un atestiguamiento: el auditor opina sobre la razonabilidad.",
+    a: false,
+    why: "Falso. En la compilación el profesional ayuda a preparar y presentar la información. La propia lectura aclara que no es un examen ni una auditoría, y que el informe debe decirlo. Se habla de «compilar», no de opinar.",
+  },
+  {
+    kind: "mc",
+    q: "Los asuntos clave de una auditoría son…",
+    options: [
+      "Todas las partidas que superan un monto fijo decidido por la gerencia.",
+      "Los temas de mayor importancia en el periodo, a juicio del auditor, elegidos entre lo comunicado a la Junta Directiva.",
+      "Únicamente los fraudes ya denunciados ante un juez.",
+      "Las notas de práctica que el IAASB publica como material optativo.",
+    ],
+    a: 1,
+    why: "Así los define el IAASB (2016) en esta lectura: importancia según el juicio profesional, y se seleccionan a partir de lo comunicado a los encargados del gobierno. No son la materialidad, ni las NIPA, ni cualquier cifra grande.",
+  },
+  {
+    kind: "tf",
+    q: "El control de calidad del encargo puede hacerse varias semanas después de emitir el informe.",
+    a: false,
+    why: "Falso. Es un proceso para evaluar, en la fecha del informe o antes, los juicios significativos y las conclusiones que sustentan ese informe. Llega tarde si el informe ya salió hace semanas. Lo realiza alguien independiente, y además el equipo más experimentado revisa al menos experimentado.",
+  },
+  {
+    kind: "mc",
+    q: "¿Quién emite las NIA y quién el Código de Ética de la profesión?",
+    options: [
+      "El IASB emite las NIA y el IAASB emite las NIIF.",
+      "La IFAC las emite mediante el IAASB; el Código de Ética lo emite el IESBA.",
+      "El IESBA emite las NIA y la IFAC solo traduce leyes nacionales.",
+      "Cada firma de auditoría emite sus NIA y la IFAC las aprueba después.",
+    ],
+    a: 1,
+    why: "La lectura es explícita: las NIA salen de la IFAC a través del IAASB. El Código de Ética para Contadores Profesionales es del IESBA y funciona como documento rector. El IASB es otro consejo: el de las normas contables (NIIF / NIC), no el de auditoría.",
+  },
+  {
+    kind: "mc",
+    q: "Las normas de revisión de información financiera histórica se numeran como…",
+    options: [
+      "NIA 100 a 999",
+      "NIER 2000 a 2699",
+      "NIEA 3000 a 3699",
+      "NISR 4000 a 4699",
+    ],
+    a: 1,
+    why: "NIER: Normas Internacionales de Encargos de Revisión. Las NIA (100 a 999) son auditoría; las NIEA, otros aseguramientos; las NISR, servicios relacionados. El Volumen I trae NICC y NIA; el Volumen II, NIER, NIEA y NISR.",
+  },
+  {
+    kind: "tf",
+    q: "Si el auditor aplica una NIA antes de su fecha de vigencia, ya no puede declarar que cumple las normas.",
+    a: false,
+    why: "Falso. La fecha obligatoria viene en el manual cuando el IAASB revisa una norma, pero adelantarla no vulnera el rigor ni la declaración de cumplimiento (IAASB, 2016). Lo que sí es incorrecto es apoyarse en una norma derogada u obsoleta.",
+  },
+  {
+    kind: "mc",
+    q: "El escepticismo profesional, según el IAASB citado en la lectura, es…",
+    options: [
+      "Asumir que la gerencia siempre miente y rechazar toda evidencia interna.",
+      "Una actitud: mente inquisitiva, atención a posibles incorrecciones por error o fraude, y valoración crítica de la evidencia.",
+      "Delegar las decisiones en una lista de chequeo para no usar el juicio.",
+      "La revisión final que hace una persona independiente el día del informe.",
+    ],
+    a: 1,
+    why: "Esa es la definición de la lectura (IAASB, 2016). No es cinismo automático ni una lista que reemplace el juicio. La opción de la revisión independiente describe el control de calidad del encargo, que es otra cosa. El escepticismo sirve para contrastar el marco con los hechos.",
+  },
+];
+
+const MODULES = [
+  { id: "partida", n: "01", title: "Punto de partida", text: "Objetivo de la lectura y para qué sirven las NIA en el proceso." },
+  { id: "glosario", n: "02", title: "Definiciones que sí importan", text: "Dieciséis conceptos, en simple y con la fuente de la lectura." },
+  { id: "ifac", n: "03", title: "IFAC e IAASB", text: "Quién emite las normas, desde cuándo y cómo llegan al español." },
+  { id: "mapa", n: "04", title: "Mapa de pronunciamientos", text: "Ética, control de calidad, NIA, NIER, NIEA y NISR." },
+  { id: "alcance", n: "05", title: "Qué obliga y qué no", text: "Vigencia, ley nacional, NIPA y el deber de documentar." },
+  { id: "cierre", n: "06", title: "Cierre de la lectura", text: "La idea que tienes que poder explicar con tus palabras." },
+];
+
+function shuffle(list) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    if (c === "&") return "&" + "amp;";
+    if (c === "<") return "&" + "lt;";
+    if (c === ">") return "&" + "gt;";
+    if (c === '"') return "&" + "quot;";
+    return "&" + "#39;";
+  });
+}
+function icon(name) {
+  const p = {
+    moon: '<path d="M20 14.5A7.5 7.5 0 0 1 9.5 4 7 7 0 1 0 20 14.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    sun: '<circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    home: '<path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    refresh: '<path d="M20 12a8 8 0 1 1-2.2-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  };
+  return '<svg viewBox="0 0 24 24" aria-hidden="true">' + p[name] + "</svg>";
+}
+
+function fresh(theme) {
+  return {
+    view: "home",
+    done: {},
+    theme: theme,
+    confirmReset: false,
+    faseOrder: shuffle(["plan", "ejec", "concl", "opin"]),
+    partidaPicks: [],
+    partidaChecked: false,
+    partidaOk: false,
+    gq: "",
+    ggroup: "all",
+    gopen: null,
+    gpick: null,
+    gchecked: false,
+    gok: false,
+    ifacPick: null,
+    ifacChecked: false,
+    ifacOk: false,
+    mapNode: "etica",
+    mapAssign: {},
+    mapChecked: false,
+    mapOk: false,
+    alcAssign: {},
+    alcChecked: false,
+    alcOk: false,
+    cierrePick: null,
+    cierreChecked: false,
+    cierreOk: false,
+    quizStep: 0,
+    quizPick: null,
+    quizLog: [],
+    quizDone: false,
+  };
+}
+
+let state = fresh(document.documentElement.getAttribute("data-theme") || "light");
+try {
+  const raw = localStorage.getItem(STATE_KEY);
+  if (raw) {
+    const saved = JSON.parse(raw);
+    state = Object.assign(fresh(state.theme), saved, { confirmReset: false, theme: state.theme });
+  }
+} catch (e) {}
+
+let focusId = null;
+let focusPos = null;
+let lastView = null;
+let scrollFeedback = false;
+
+function save() {
+  try {
+    const copy = Object.assign({}, state);
+    delete copy.confirmReset;
+    localStorage.setItem(STATE_KEY, JSON.stringify(copy));
+    localStorage.setItem(THEME_KEY, state.theme);
+  } catch (e) {}
+}
+function applyTheme(t) {
+  state.theme = t;
+  document.documentElement.setAttribute("data-theme", t);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", t === "dark" ? "#12100e" : "#f3ebe4");
+  save();
+}
+applyTheme(state.theme);
+
+function studyCount() {
+  return MODULES.filter(function (m) { return state.done[m.id]; }).length;
+}
+
+function feedback(ok, html, wrongLabel) {
+  const label = ok ? "Correcto." : (wrongLabel || "Todavía no.");
+  return '<div class="feedback ' + (ok ? "ok" : "bad") + '" role="status"><strong>' + label + "</strong>" + html + "</div>";
+}
+
+function shell() {
+  const themeLabel = state.theme === "dark" ? "Visión clara" : "Visión oscura";
+  const themeIcon = state.theme === "dark" ? "sun" : "moon";
+  const onHome = state.view === "home";
+  let html = '<header class="top"><div class="top-row"><button class="brand" data-action="go" data-view="home"><span class="mark">N</span><span><b>Aula NIA</b><small>Lectura 1</small></span></button><span class="spacer"></span>';
+  html += '<button class="iconbtn" data-action="theme" aria-label="' + themeLabel + '">' + icon(themeIcon) + "</button>";
+  if (!onHome) html += '<button class="textbtn" data-action="go" data-view="home">' + icon("home") + "Menú</button>";
+  html += '<button class="iconbtn" data-action="ask-reset" aria-label="Reiniciar la lección">' + icon("refresh") + '</button></div><p class="prof">Profesor Sergio Tertusio</p></header>';
+  html += '<main id="contenido" class="wrap">' + view() + "</main>";
+  if (state.confirmReset) {
+    html += '<div class="modal-back"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="reset-title"><h2 id="reset-title">Reiniciar la lección</h2><p>Se borra el avance de los módulos y el quiz. La visión clara u oscura se conserva.</p><div class="row"><button class="ghost" id="btn-cancel" data-action="cancel-reset">Cancelar</button><button class="go" data-action="do-reset">Reiniciar</button></div></div></div>';
+  }
+  return html;
+}
+
+function view() {
+  if (state.view === "partida") return viewPartida();
+  if (state.view === "glosario") return viewGlosario();
+  if (state.view === "ifac") return viewIfac();
+  if (state.view === "mapa") return viewMapa();
+  if (state.view === "alcance") return viewAlcance();
+  if (state.view === "cierre") return viewCierre();
+  if (state.view === "quiz") return viewQuiz();
+  return viewHome();
+}
+
+function viewHome() {
+  const n = studyCount();
+  const pct = Math.round((n / MODULES.length) * 100);
+  let html = '<p class="kicker">Auditoría especializada · Lectura 1</p><p class="byline">Profesor Sergio Tertusio</p><h1>Normas Internacionales de Auditoría</h1>';
+  html += '<p class="lede">Recorrido de comprensión para la Lectura 1. Vas a ver quién emite las NIA, qué tipo de encargo es cada uno y qué es obligatorio. Cada módulo cierra con una actividad. Al final hay un quiz de 10 preguntas: aciertes o no, verás el fundamento.</p>';
+  html += '<div class="progress-row"><strong>' + n + ' de ' + MODULES.length + ' módulos</strong><span class="muted">' + (state.quizDone ? "Quiz hecho · " + state.quizLog.filter(function (x) { return x.ok; }).length + "/10" : "Quiz pendiente") + '</span></div>';
+  html += '<div class="bar" role="progressbar" aria-valuenow="' + n + '" aria-valuemin="0" aria-valuemax="6"><span style="width:' + pct + '%"></span></div>';
+  html += '<div class="steps"><div class="step"><b>1. Lee el módulo</b><span class="muted">La idea va primero, el detalle después.</span></div><div class="step"><b>2. Resuelve la actividad</b><span class="muted">Si fallas, el texto te dice por qué.</span></div><div class="step"><b>3. Cierra con el quiz</b><span class="muted">Diez preguntas, nivel de comprensión.</span></div></div>';
+  html += '<div class="modules">';
+  MODULES.forEach(function (m) {
+    const done = !!state.done[m.id];
+    html += '<button class="card" data-action="go" data-view="' + m.id + '"><span class="idx">' + m.n + "</span><h3>" + m.title + "</h3><p>" + m.text + '</p><span class="pill ' + (done ? "done" : "") + '">' + (done ? "Listo" : "Por hacer") + "</span></button>";
+  });
+  const qLabel = state.quizDone ? "Repasar resultado" : (state.quizLog.length || state.quizPick !== null || state.quizStep > 0 ? "Continuar quiz" : "Empezar quiz");
+  html += '<button class="card span2" data-action="go" data-view="quiz"><span class="idx">QUIZ</span><h3>10 preguntas con fundamento</h3><p>Opción múltiple y verdadero o falso. Después de cada respuesta se explica qué sostiene la lectura.</p><span class="pill ' + (state.quizDone ? "done" : "") + '">' + qLabel + "</span></button>";
+  html += "</div>";
+  html += '<p class="sources" style="margin-top:28px">Basado en la Lectura 1, <em>Normas Internacionales de Auditoría (NIAS)</em>, Auditoría Especializada. Fuentes que el texto usa con más peso: IAASB (2016), IFAC, IESBA, Mantilla (2016), Tapia et al. (2016), Montes et al. (2017), IMCP (2018) y NIC 1 (IASB, 2019).</p>';
+  return html;
+}
+
+function backRow() {
+  return '<div class="row" style="margin-top:18px"><button class="ghost" data-action="go" data-view="home">Volver al menú</button></div>';
+}
+
+function viewPartida() {
+  let html = '<p class="kicker">Módulo 01</p><h2>Punto de partida</h2><div class="prose">';
+  html += "<p>Con esta lectura se espera que conozcas la introducción a las NIA: definiciones, la estructura de lo que emite el IAASB, y el contexto y alcance de las normas. Es la base para estudiar después cada norma en particular.</p>";
+  html += "<p>Las NIA son el marco de cada fase del proceso: <strong>planificación, ejecución, conclusión y opinión</strong>. Las emite la Federación Internacional de Contadores (IFAC) mediante la Junta Internacional de Normas de Auditoría y Aseguramiento (IAASB), para auditorías en todo tipo de organizaciones.</p>";
+  html += "</div>";
+  html += '<div class="callout"><div></div><p>El propósito es un discurso común: guías para levantar información, analizar riesgos, evaluar controles, obtener evidencia y emitir el informe. En conjunto, permiten que el auditor cumpla los objetivos de su trabajo.</p></div>';
+  html += '<div class="prose"><p>El Manual del IAASB (2016) reúne el conjunto de normas de control de calidad, auditoría, revisión, otros encargos de aseguramiento y servicios relacionados. La idea es trabajar con calidad y con los criterios éticos de la profesión.</p></div>';
+  html += faseActivity();
+  html += backRow();
+  return html;
+}
+
+function faseActivity() {
+  let html = '<section class="activity"><h3>Ordena el proceso</h3><p class="muted">Toca las fases en el orden en que la introducción presenta el trabajo de auditoría.</p><div class="slots">';
+  for (let i = 0; i < 4; i++) {
+    const id = state.partidaPicks[i];
+    html += '<div class="slot"><em>' + (i + 1) + "</em><span>" + (id ? esc(FASES[id]) : "—") + "</span></div>";
+  }
+  html += '</div><div class="row">';
+  state.faseOrder.forEach(function (id) {
+    const used = state.partidaPicks.indexOf(id) >= 0;
+    html += '<button class="chip' + (used ? " used" : "") + '" data-action="fase-add" data-id="' + id + '">' + esc(FASES[id]) + "</button>";
+  });
+  html += '</div><div class="row"><button class="ghost" data-action="fase-clear">Borrar orden</button><button class="go" data-action="fase-check"' + (state.partidaPicks.length === 4 ? "" : " disabled") + ">Comprobar</button></div>";
+  if (state.partidaChecked) {
+    html += feedback(state.partidaOk, state.partidaOk
+      ? "<p>La introducción nombra el proceso en ese orden: planificación, ejecución, conclusión y opinión. Las NIA acompañan todo el recorrido, no solo el informe final.</p>"
+      : "<p>El orden de la lectura es planificación, ejecución, conclusión y opinión. Primero se prepara el trabajo, después se obtiene evidencia, se cierra y se opina. Vuelve a intentarlo.</p>");
+  }
+  html += "</section>";
+  return html;
+}
+
+function viewGlosario() {
+  const groups = [["all", "Todos"], ["encargos", "Encargos"], ["actitud", "Actitud"], ["trabajo", "El trabajo"], ["marco", "Información"]];
+  const q = state.gq.trim().toLowerCase();
+  let html = '<p class="kicker">Módulo 02</p><h2>Definiciones que sí importan</h2><p class="lede">No memorices el párrafo. Quédate con la frase «en simple» y abre la ficha si necesitas la fuente.</p>';
+  html += '<div class="split three">';
+  html += panel("Razonable", "Riesgo a un nivel bajo. Pruebas suficientes y adecuadas para opinar sobre la razonabilidad.");
+  html += panel("Limitado", "Riesgo solo a un nivel aceptable en las circunstancias. No se hacen todas las pruebas. Revisión limitada.");
+  html += panel("Compilación", "Se prepara información (NISR 4410). No es opinión ni auditoría. El informe debe decirlo.");
+  html += "</div>";
+  html += '<input class="search" id="q" type="search" placeholder="Buscar un término" value="' + esc(state.gq) + '" aria-label="Buscar un término">';
+  html += '<div class="row">';
+  groups.forEach(function (g) {
+    html += '<button class="chip' + (state.ggroup === g[0] ? " on" : "") + '" data-action="ggroup" data-id="' + g[0] + '">' + g[1] + "</button>";
+  });
+  html += '</div><div class="list">';
+  TERMS.filter(function (t) {
+    if (state.ggroup !== "all" && t.group !== state.ggroup) return false;
+    if (!q) return true;
+    return (t.name + " " + t.simple + " " + t.body).toLowerCase().indexOf(q) >= 0;
+  }).forEach(function (t) {
+    const open = state.gopen === t.id;
+    html += '<article class="term"><button data-action="gopen" data-id="' + t.id + '" aria-expanded="' + open + '"><span><strong>' + esc(t.name) + '</strong><br><span class="muted fine">' + esc(t.simple) + '</span></span><span aria-hidden="true">' + (open ? "–" : "+") + '</span></button>';
+    if (open) html += '<div class="body"><p>' + esc(t.body) + "</p></div>";
+    html += "</article>";
+  });
+  html += "</div>";
+  html += '<section class="activity"><h3>Explícalo sin deformarlo</h3><p>¿Cuál frase dice qué es la materialidad, fiel a la NIC 1 citada en la lectura?</p>';
+  const opts = [
+    "Es un monto que el auditor inventa para no revisar partidas chicas, sin pensar en quien usa la información.",
+    "Una omisión o una expresión inadecuada es material si puede influir en las decisiones de los usuarios principales de los estados financieros.",
+    "Solo el fraude es material. Un error, por grande que sea, no cambia la razonabilidad.",
+  ];
+  opts.forEach(function (text, i) {
+    html += choiceBtn("gpick", i, text, state.gpick, state.gchecked, state.gok ? 1 : (state.gchecked ? 1 : null), 1);
+  });
+  html += '<div class="row"><button class="go" data-action="g-check"' + (state.gpick === null ? " disabled" : "") + ">Comprobar</button></div>";
+  if (state.gchecked) {
+    html += feedback(state.gok, "<p>La información es material si su omisión o expresión inadecuada puede esperarse, razonablemente, que influya en las decisiones de los usuarios principales (NIC 1, IASB, 2019). No depende de que el problema sea fraude, ni de ignorar al usuario.</p>");
+  }
+  html += "</section>" + backRow();
+  return html;
+}
+
+function panel(tag, text) {
+  return '<article class="panel"><span class="tag">' + tag + "</span><p>" + text + "</p></article>";
+}
+
+function choiceBtn(action, i, text, pick, checked, correctShown, correct) {
+  let cls = "choice";
+  if (pick === i) cls += " on";
+  let note = "";
+  if (checked) {
+    if (i === correct) { cls += " good"; note = " · Correcta"; }
+    else if (pick === i) { cls += " miss"; note = " · Tu elección"; }
+    else cls += " dim";
+  }
+  const letter = "ABCD"[i];
+  return '<div class="row" style="margin:8px 0"><button class="' + cls + '" data-action="' + action + '" data-i="' + i + '"><span class="letter">' + letter + '</span><span>' + esc(text) + note + "</span></button></div>";
+}
+
+function viewIfac() {
+  let html = '<p class="kicker">Módulo 03</p><h2>IFAC e IAASB</h2><div class="prose">';
+  html += "<p>La Federación Internacional de Contadores (IFAC) busca estándares internacionales de alta calidad que inspiren confianza en las economías. Los consejos emisores, independientes, producen normas de auditoría y aseguramiento, ética, información financiera del sector público, y competencias profesionales.</p>";
+  html += "</div>";
+  html += '<div class="split two">';
+  html += panel("IFAC · 1977", "Defiende transparencia, responsabilidad y comparabilidad. Apoya la adopción de normas de auditoría y control de calidad, sobre todo a través del IAASB.");
+  html += panel("IAASB", "Fija estándares altos de auditoría, aseguramiento y control de calidad. Con eso se sostiene la confianza pública en la profesión (IFAC, 2022).");
+  html += "</div>";
+  html += '<div class="callout"><div></div><p>Las normas se revisan y se publican gratis en <a href="https://www.ifac.org" target="_blank" rel="noopener">ifac.org</a>, en inglés. La traducción al español la hace la propia Federación, para que el texto sea fiel. Ella resguarda los derechos de autor.</p></div>';
+  html += '<section class="activity"><h3>Una distinción que se cobra en el examen</h3><p>La traducción oficial de las normas al español…</p>';
+  const opts = [
+    "La hace cada firma, con la versión que le convenga.",
+    "La realiza la propia IFAC, como garantía de fidelidad al texto publicado.",
+    "No existe. Solo puede consultarse en inglés.",
+  ];
+  opts.forEach(function (text, i) {
+    html += choiceBtn("ifac-pick", i, text, state.ifacPick, state.ifacChecked, 1, 1);
+  });
+  html += '<div class="row"><button class="go" data-action="ifac-check"' + (state.ifacPick === null ? " disabled" : "") + ">Comprobar</button></div>";
+  if (state.ifacChecked) {
+    html += feedback(state.ifacOk, "<p>La lectura lo subraya: la traducción oficial al español la hace la Federación. Así la publicación queda genuina y apegada a la normativa. No es un resumen de cada despacho.</p>");
+  }
+  html += "</section>" + backRow();
+  return html;
+}
+
+function nodeBtn(id) {
+  const n = NODES[id];
+  const on = state.mapNode === id ? " on" : "";
+  return '<button class="node' + on + '" data-action="map-node" data-id="' + id + '"><strong>' + esc(n.t) + "</strong><small>Toca para leer</small></button>";
+}
+
+function viewMapa() {
+  const current = NODES[state.mapNode];
+  let html = '<p class="kicker">Módulo 04</p><h2>Mapa de pronunciamientos</h2><div class="prose"><p>El IAASB clasifica las normas por su propósito. Arriba está el Código de Ética del IESBA, como documento rector. «Aseguramiento» aquí significa verificar un marco y emitir un informe sobre la razonabilidad, contrastando las afirmaciones de la gerencia.</p></div>';
+  html += '<div class="tree">';
+  html += nodeBtn("etica") + '<div class="stem"></div>' + nodeBtn("iaasb") + '<div class="stem"></div>' + nodeBtn("nicc") + '<div class="stem"></div>' + nodeBtn("aseg");
+  html += '<div class="tree-split"><div class="tree">' + nodeBtn("hist") + '<div class="stem"></div>' + nodeBtn("nia") + '<div class="stem"></div>' + nodeBtn("nier") + "</div>";
+  html += '<div class="tree">' + nodeBtn("otro") + '<div class="stem"></div>' + nodeBtn("niea") + '<div class="stem"></div>' + nodeBtn("serv") + '<div class="stem"></div>' + nodeBtn("nisr") + "</div></div></div>";
+  html += '<article class="panel"><span class="tag">Estás leyendo</span><h3>' + esc(current.t) + "</h3><p>" + esc(current.d) + "</p></article>";
+  html += '<div class="split three" style="margin-top:12px">';
+  html += panel("Volumen I", "NICC y NIA 100 a 999.");
+  html += panel("Volumen II", "NIER 2000 a 2699, NIEA 3000 a 3699 y NISR 4000 a 4699.");
+  html += panel("Volumen III", "Suplemento del manual de pronunciamientos.");
+  html += "</div>";
+  html += '<p class="fine">Las NIA dan lineamientos de planificación, ejecución (pruebas) e informes. Hace falta evidencia suficiente y competente. Si un encargo de aseguramiento no sigue las NIA, se documentan las razones. La auditoría interna puede quedar fuera de su alcance, aunque algunas NIA sirvan también ahí.</p>';
+  html += '<section class="activity"><h3>Coloca cada familia</h3><p class="muted">Elige el tipo de encargo que corresponde al rango numérico.</p><div class="assign">';
+  MAP_ITEMS.forEach(function (item) {
+    html += "<article><strong>" + esc(item.label) + '</strong><div class="row">';
+    BUCKETS.forEach(function (b) {
+      const on = state.mapAssign[item.id] === b.id;
+      let cls = "chip" + (on ? " on" : "");
+      if (state.mapChecked) {
+        if (item.bucket === b.id && on) cls += " on";
+      }
+      html += '<button class="' + cls + '" data-action="map-set" data-item="' + item.id + '" data-bucket="' + b.id + '">' + esc(b.label) + "</button>";
+    });
+    html += "</div>";
+    if (state.mapChecked) {
+      const got = state.mapAssign[item.id];
+      const ok = got === item.bucket;
+      const right = BUCKETS.filter(function (b) { return b.id === item.bucket; })[0].label;
+      html += '<p class="fine">' + (ok ? "Bien ubicada." : "Corresponde a " + esc(right) + ".") + "</p>";
+    }
+    html += "</article>";
+  });
+  html += "</div>";
+  const ready = MAP_ITEMS.every(function (item) { return state.mapAssign[item.id]; });
+  html += '<div class="row"><button class="go" data-action="map-check"' + (ready ? "" : " disabled") + ">Comprobar</button></div>";
+  if (state.mapChecked) {
+    html += feedback(state.mapOk, "<p>La numeración es la del manual: NIA auditoría (100–999), NIER revisión (2000–2699), NIEA otros aseguramientos (3000–3699) y NISR servicios relacionados (4000–4699). El Volumen I junta control de calidad y NIA; el II, el resto.</p>");
+  }
+  html += "</section>" + backRow();
+  return html;
+}
+
+function viewAlcance() {
+  let html = '<p class="kicker">Módulo 05</p><h2>Qué obliga y qué no</h2><div class="prose">';
+  html += "<p>El alcance y la fecha de entrada en vigor de cada NIA están en el manual. Se puede aplicar una norma antes de esa fecha: eso no cambia la declaración de cumplimiento. Cuando el IAASB revisa una norma, indica desde cuándo es obligatoria. No es adecuado usar normas obsoletas o derogadas.</p>";
+  html += "<p>Dentro del marco hay pronunciamientos de cumplimiento obligatorio y material de consulta que no obliga.</p></div>";
+  html += '<div class="split two">';
+  html += '<article class="panel"><span class="tag">Obligatorio</span><p>Los pronunciamientos del IAASB regulan auditoría, revisión, otros aseguramientos y servicios relacionados hechos conforme a las Normas Internacionales. No anulan la ley del país. En todo informe de atestiguamiento hay que declarar que el trabajo se hizo con base en las NIA, NIER, NIEA o NISR, según el tipo de encargo. El Código de Ética cubre al auditor interno y al externo.</p></article>';
+  html += '<article class="panel"><span class="tag">No obligatorio</span><p>Notas de Prácticas del IAASB y publicaciones de los servicios técnicos. No forman parte de las NIA, ni de las de revisión, ni de las de servicios relacionados. Las NIPA no suman requisitos ni modifican la responsabilidad de cumplir todas las NIA relevantes.</p></article>';
+  html += "</div>";
+  html += '<section class="activity"><h3>¿La lectura respalda la frase?</h3><div class="assign">';
+  ALCANCE.forEach(function (item) {
+    html += "<article><p>" + esc(item.text) + '</p><div class="row">';
+    ["si", "no"].forEach(function (val) {
+      const label = val === "si" ? "Sí, la respalda" : "No es así";
+      const on = state.alcAssign[item.id] === val ? " on" : "";
+      html += '<button class="chip' + on + '" data-action="alc-set" data-item="' + item.id + '" data-val="' + val + '">' + label + "</button>";
+    });
+    html += "</div>";
+    if (state.alcChecked) html += "<p class=\"fine\">" + esc(item.why) + "</p>";
+    html += "</article>";
+  });
+  html += "</div>";
+  const ready = ALCANCE.every(function (item) { return state.alcAssign[item.id]; });
+  html += '<div class="row"><button class="go" data-action="alc-check"' + (ready ? "" : " disabled") + ">Comprobar</button></div>";
+  if (state.alcChecked) {
+    html += feedback(state.alcOk, "<p>Obligan las normas del encargo que dices estar aplicando, más el Código de Ética. No obligan las NIPA. La ley nacional sigue en pie. La aplicación anticipada se permite; la norma derogada, no. Y la auditoría interna no entra de forma automática.</p>");
+  }
+  html += "</section>" + backRow();
+  return html;
+}
+
+function viewCierre() {
+  let html = '<p class="kicker">Módulo 06</p><h2>Cierre de la lectura</h2><div class="prose">';
+  html += "<p>El auditor rige su trabajo por el Código de Ética y por las NIA. Eso sostiene procedimientos de aseguramiento y de revisión alineados con buenos estándares. El resultado se atestigua en informes dirigidos a la gerencia o a la Junta Directiva que pidió el servicio.</p>";
+  html += "<p>El control de calidad confirma que hubo planificación, ejecución, informe y documentación de la evidencia, con los criterios éticos aplicados.</p>";
+  html += "<p>El manual del IAASB, como colaborador de la IFAC, propone un lenguaje global: los mismos criterios para evaluar riesgos, entender el negocio y levantar evidencia. Los informes se elaboran con disciplina porque alimentan decisiones.</p></div>";
+  html += '<div class="callout"><div></div><p>Si puedes explicar estas cuatro piezas —quién emite, qué encargo es, qué obliga y qué significa materialidad— ya tienes el nivel de comprensión de la lectura.</p></div>';
+  html += '<section class="activity"><h3>¿Con qué frase te quedarías?</h3>';
+  const opts = [
+    "El auditor se rige por el Código de Ética y las NIA para hacer un trabajo de calidad que luego se atestigua en el informe.",
+    "Conviene usar la norma derogada si el equipo ya la conoce: el rigor no cambia.",
+    "Documentar la evidencia es opcional, porque el juicio profesional no se escribe.",
+  ];
+  opts.forEach(function (text, i) {
+    html += choiceBtn("cierre-pick", i, text, state.cierrePick, state.cierreChecked, 0, 0);
+  });
+  html += '<div class="row"><button class="go" data-action="cierre-check"' + (state.cierrePick === null ? " disabled" : "") + ">Comprobar</button></div>";
+  if (state.cierreChecked) {
+    html += feedback(state.cierreOk, "<p>La conclusión de la lectura junta ética y NIA. El informe muestra el trabajo. Las normas de control de calidad piden documentar la evidencia y los criterios éticos. Usar una norma derogada no es un atajo aceptable.</p>");
+  }
+  html += "</section>";
+  html += '<p class="sources">Para ir al manual: <a href="https://www.ifac.org" target="_blank" rel="noopener">ifac.org</a>. El suplemento citado en la lectura está en el enlace corto del texto (Volumen III).</p>';
+  html += backRow();
+  return html;
+}
+
+function viewQuiz() {
+  if (state.quizDone) return viewQuizResult();
+  const q = QUIZ[state.quizStep];
+  const revealed = state.quizPick !== null;
+  let html = '<p class="kicker">Quiz · comprensión</p><h2>Pregunta ' + (state.quizStep + 1) + " de 10</h2>";
+  html += '<div class="qmeta"><span>' + (q.kind === "tf" ? "Verdadero o falso" : "Opción múltiple") + "</span><span>" + (state.quizStep + 1) + "/10</span></div>";
+  html += '<div class="bar"><span style="width:' + (state.quizStep * 10) + '%"></span></div>';
+  html += "<h3>" + esc(q.q) + "</h3>";
+  if (q.kind === "tf") {
+    html += tfBtn(true, "Verdadero", revealed);
+    html += tfBtn(false, "Falso", revealed);
+  } else {
+    q.options.forEach(function (text, i) {
+      html += choiceBtn("quiz-pick", i, text, state.quizPick, revealed, q.a, q.a);
+    });
+  }
+  if (revealed) {
+    const ok = isQuizOk(q, state.quizPick);
+    let extra = "<p>" + esc(q.why) + "</p>";
+    if (!ok) {
+      const chosen = q.kind === "tf" ? (state.quizPick ? "Verdadero" : "Falso") : q.options[state.quizPick];
+      const right = q.kind === "tf" ? (q.a ? "Verdadero" : "Falso") : q.options[q.a];
+      extra = "<p>Elegiste: «" + esc(chosen) + "».</p><p>Lo que sostiene la lectura: «" + esc(right) + "».</p>" + extra;
+    }
+    html += feedback(ok, extra, "Incorrecto.");
+    const last = state.quizStep === QUIZ.length - 1;
+    html += '<div class="row"><button class="go" data-action="quiz-next">' + (last ? "Ver resultado" : "Siguiente") + "</button></div>";
+  }
+  return html;
+}
+
+function tfBtn(val, label, revealed) {
+  const q = QUIZ[state.quizStep];
+  const pick = state.quizPick;
+  let cls = "choice";
+  if (pick === val) cls += " on";
+  let note = "";
+  if (revealed) {
+    if (q.a === val) { cls += " good"; note = " · Correcta"; }
+    else if (pick === val) { cls += " miss"; note = " · Tu elección"; }
+    else cls += " dim";
+  }
+  return '<div class="row" style="margin:8px 0"><button class="choice ' + cls + '" data-action="quiz-tf" data-val="' + (val ? "1" : "0") + '"><span class="letter">' + (val ? "V" : "F") + "</span><span>" + label + note + "</span></button></div>";
+}
+
+function isQuizOk(q, pick) {
+  return q.kind === "tf" ? pick === q.a : pick === q.a;
+}
+
+function viewQuizResult() {
+  const ok = state.quizLog.filter(function (x) { return x.ok; }).length;
+  let band = "Conviene releer los módulos. El objetivo no es memorizar frases: es distinguir quién emite las normas, qué encargo es cada uno y qué obliga.";
+  if (ok >= 9) band = "Comprensión sólida de la Lectura 1. Puedes explicar las ideas con tus palabras.";
+  else if (ok >= 7) band = "Bien encaminado. Vuelve solo a lo que fallaste y rehaz esa actividad.";
+  else if (ok >= 5) band = "Comprensión parcial. El mapa de NIA, NIER, NIEA y NISR, y la diferencia entre razonable, limitado y compilación, suelen ser el hueco.";
+  let html = '<p class="kicker">Resultado</p><h2>Tu quiz</h2><p class="score">' + ok + "<span class=\"muted\" style=\"font-size:1.4rem\">/10</span></p><p class=\"lede\">" + band + "</p>";
+  html += "<div>";
+  state.quizLog.forEach(function (item, i) {
+    const q = QUIZ[i];
+    html += '<details class="rev"><summary>' + (i + 1) + ". " + (item.ok ? "Correcto" : "Incorrecto") + " — " + esc(q.q) + "</summary><p>" + esc(q.why) + "</p></details>";
+  });
+  html += '</div><div class="row"><button class="go" data-action="quiz-retry">Reintentar quiz</button><button class="ghost" data-action="go" data-view="home">Volver al menú</button></div>';
+  return html;
+}
+
+function render() {
+  const active = document.activeElement;
+  if (active && active.id) {
+    focusId = active.id;
+    focusPos = active.selectionStart;
+  } else focusId = null;
+  const changed = lastView !== state.view;
+  document.getElementById("aula-root").innerHTML = shell();
+  if (changed) {
+    window.scrollTo(0, 0);
+    lastView = state.view;
+  } else if (focusId) {
+    const el = document.getElementById(focusId);
+    if (el) {
+      el.focus();
+      if (typeof focusPos === "number" && el.setSelectionRange) el.setSelectionRange(focusPos, focusPos);
+    }
+  }
+  if (state.confirmReset) {
+    const c = document.getElementById("btn-cancel");
+    if (c) c.focus();
+  }
+  if (scrollFeedback) {
+    scrollFeedback = false;
+    const f = document.querySelector(".feedback");
+    if (f && !changed) f.scrollIntoView({ block: "nearest" });
+  }
+}
+
+function onClick(e) {
+  const btn = e.target.closest("[data-action]");
+  if (!btn) return;
+  const action = btn.getAttribute("data-action");
+  if (action === "theme") {
+    applyTheme(state.theme === "dark" ? "light" : "dark");
+    render();
+    return;
+  }
+  if (action === "go") {
+    state.view = btn.getAttribute("data-view");
+    state.confirmReset = false;
+    save(); render(); return;
+  }
+  if (action === "ask-reset") { state.confirmReset = true; render(); return; }
+  if (action === "cancel-reset") { state.confirmReset = false; render(); return; }
+  if (action === "do-reset") {
+    const theme = state.theme;
+    state = fresh(theme);
+    save(); lastView = null; render(); return;
+  }
+  if (action === "fase-add") {
+    if (state.partidaOk) return;
+    const id = btn.getAttribute("data-id");
+    const i = state.partidaPicks.indexOf(id);
+    if (i >= 0) state.partidaPicks.splice(i, 1);
+    else if (state.partidaPicks.length < 4) state.partidaPicks.push(id);
+    state.partidaChecked = false;
+    save(); render(); return;
+  }
+  if (action === "fase-clear") {
+    if (state.partidaOk) return;
+    state.partidaPicks = []; state.partidaChecked = false; save(); render(); return;
+  }
+  if (action === "fase-check") {
+    state.partidaChecked = true;
+    state.partidaOk = state.partidaPicks.join(",") === "plan,ejec,concl,opin";
+    if (state.partidaOk) state.done.partida = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "ggroup") { state.ggroup = btn.getAttribute("data-id"); save(); render(); return; }
+  if (action === "gopen") {
+    const id = btn.getAttribute("data-id");
+    state.gopen = state.gopen === id ? null : id;
+    save(); render(); return;
+  }
+  if (action === "gpick") {
+    if (state.gok) return;
+    state.gpick = Number(btn.getAttribute("data-i"));
+    state.gchecked = false; save(); render(); return;
+  }
+  if (action === "g-check") {
+    state.gchecked = true;
+    state.gok = state.gpick === 1;
+    if (state.gok) state.done.glosario = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "ifac-pick") {
+    if (state.ifacOk) return;
+    state.ifacPick = Number(btn.getAttribute("data-i"));
+    state.ifacChecked = false; save(); render(); return;
+  }
+  if (action === "ifac-check") {
+    state.ifacChecked = true;
+    state.ifacOk = state.ifacPick === 1;
+    if (state.ifacOk) state.done.ifac = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "map-node") { state.mapNode = btn.getAttribute("data-id"); save(); render(); return; }
+  if (action === "map-set") {
+    if (state.mapOk) return;
+    state.mapAssign[btn.getAttribute("data-item")] = btn.getAttribute("data-bucket");
+    state.mapChecked = false; save(); render(); return;
+  }
+  if (action === "map-check") {
+    state.mapChecked = true;
+    state.mapOk = MAP_ITEMS.every(function (item) { return state.mapAssign[item.id] === item.bucket; });
+    if (state.mapOk) state.done.mapa = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "alc-set") {
+    if (state.alcOk) return;
+    state.alcAssign[btn.getAttribute("data-item")] = btn.getAttribute("data-val");
+    state.alcChecked = false; save(); render(); return;
+  }
+  if (action === "alc-check") {
+    state.alcChecked = true;
+    state.alcOk = ALCANCE.every(function (item) { return state.alcAssign[item.id] === item.ok; });
+    if (state.alcOk) state.done.alcance = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "cierre-pick") {
+    if (state.cierreOk) return;
+    state.cierrePick = Number(btn.getAttribute("data-i"));
+    state.cierreChecked = false; save(); render(); return;
+  }
+  if (action === "cierre-check") {
+    state.cierreChecked = true;
+    state.cierreOk = state.cierrePick === 0;
+    if (state.cierreOk) state.done.cierre = true;
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "quiz-pick") {
+    if (state.quizPick !== null || state.quizDone) return;
+    state.quizPick = Number(btn.getAttribute("data-i"));
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "quiz-tf") {
+    if (state.quizPick !== null || state.quizDone) return;
+    state.quizPick = btn.getAttribute("data-val") === "1";
+    scrollFeedback = true; save(); render(); return;
+  }
+  if (action === "quiz-next") {
+    const q = QUIZ[state.quizStep];
+    state.quizLog.push({ ok: isQuizOk(q, state.quizPick) });
+    state.quizPick = null;
+    if (state.quizStep >= QUIZ.length - 1) state.quizDone = true;
+    else state.quizStep += 1;
+    save(); render(); return;
+  }
+  if (action === "quiz-retry") {
+    state.quizStep = 0; state.quizPick = null; state.quizLog = []; state.quizDone = false;
+    save(); render(); return;
+  }
+}
+
+function mountLesson() {
+  const root = document.getElementById("aula-root");
+  if (!root || root.dataset.bound === "1") return;
+  root.dataset.bound = "1";
+  root.addEventListener("click", onClick);
+  root.addEventListener("input", function (e) {
+    if (e.target && e.target.id === "q") {
+      state.gq = e.target.value;
+      save();
+      render();
+    }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && state.confirmReset) {
+      state.confirmReset = false;
+      render();
+    }
+  });
+  render();
+}
+mountLesson();
+</script>
+</body>
+</html>
